@@ -1,0 +1,21 @@
+{
+  "name": "sample-app",
+  "version": "1.0.0",
+  "description": "sample full stack app",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose up",
+    "psql": " docker exec -it sample-postgres psql -U postgres",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gchen1196/sample-app.git"
+  },
+  "author": "George Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gchen1196/sample-app/issues"
+  },
+  "homepage": "https://github.com/gchen1196/sample-app#readme"
+}

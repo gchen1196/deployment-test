@@ -1,0 +1,33 @@
+version: '3.7'
+volumes:
+  sample-db:
+
+services: 
+  services:
+    image: node:latest
+    container_name: sample-services
+    working_dir: /app/services
+    command: bash -c "npm install && npm run start"
+    ports:
+      - '3001:3001'
+    depends_on:
+      - postgres
+    volumes:
+      - ./services:/app/services
+    environment:
+      PORT: 3001
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: postgres
+
+  postgres:
+    image: postgres:latest
+    container_name: sample-postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - sample-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
